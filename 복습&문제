@@ -1,0 +1,107 @@
+# #작은 따옴표를 출력하고 싶을 때
+# print("I'm learning Python")
+# print('i\'m learning Python')
+#
+# #큰 따옴표를 출력하고 싶을 때
+# print('그녀가 물었다. "저기요"')
+# print("그녀가 물었다. \"저기요\"")
+#
+# a = "Hello World"
+# #문자열 슬라이싱
+# print(a[0])  #출력값 => "Hello World"
+# print(a[2:5])#출력값 => "llo"
+# print(a[-5:])#출력값 => "World"
+# print(a[::2])#출력값 => "HWorld"
+#
+# #문자열 더하기
+# a = "Hello"
+# b = "World"
+# print(a+b) #출력값 => "HelloWorld"
+# print(a+' '+ b + '!') #출력값 => "Hello World!"
+#
+# #문자열 곱하기
+# star = '*'
+# print(star * 5) #출력값 => '*****'
+#
+# #문자열 같이 구하기
+# a = "Python"
+# print(len(a)) #출력값 => 6
+#
+# a = 'Hello Python'
+#
+# print(a.count('o'))#출력값 => 2 해당 문자의 개수 반환
+# print(a.find('i')) #출력값 => 2 해당 문자의 시작 인덱스 반환,
+#                    #없는값을 찾을시 -1 반환
+# print(a.index('x'))#출력값 => 2해당 문자의 시작 인덱스 반환
+#                    #없는값을 찾을시 오류발생(ValueError)
+# print(','.join(a)) #출력값 => H,e,l,l,o, ,P,y,t,h,o,n
+#                    #해당 문자를 인덱스 사이사이에 추가한 값을 반환
+# print(a.replace('Py','MY')) #출력값 => Hello MYthon
+#                    #(old,new) old문자를 new문자로 치환한 값을 반환
+# print(a.split())   #출력값 => ['Hello', 'Python'] 해당 문자를 기준으로
+#                    #문자열을 나누어서 반환
+# a = "....app.le...."
+# #문자열에서 연속되는 해당 문자를 제거 후 반환
+# print('|', a.lstrip('.'), '|', sep ='')
+
+
+
+
+
+
+#크로아티아 알파벳
+#1번째 방법
+# user = input()
+# croatia = ['dz=','c=','c-','d-','lj','nj','s=','z=']
+#
+# i = 0
+# cnt = 0
+# while i < len(user):
+#     temp = i
+#     for j in range(len(croatia)):
+#         if user[i:].find(croatia[j]) == 0:
+#             i += len(croatia[j])
+#             break
+#     if temp == i:
+#         i += 1
+#     cnt += 1
+#
+# print(cnt)
+
+
+#2번째 방법
+# cnt = len(user)
+# for i in range(len(user)):
+#     if user[i] == '=':
+#         if user[i-1] == 'c' or user[i-1] == 's':
+#             cnt -= 1
+#         else:
+#             if user[i-1] == 'z':
+#                 if user[i-2] == 'd':
+#                     cnt-=2
+#                 else:
+#                     cnt -= 1
+#     elif user[i] == '-':
+#         if user[i-1] == 'c' or user[i-1] =='d':
+#             cnt -= 1
+#     elif user[i] == 'j':
+#         if user[i-1] == 'l' or user[i-1] =='n':
+#             cnt -= 1
+# print(cnt)
+
+
+#평균은 넘겠지
+C = int(input())
+for i in range(C):
+    scores = input("학생수, 점수들").split()
+    n = int(scores[0])
+    scores= scores[1:]
+    total = 0
+    for j in scores:
+        total += int(j)
+    average = total / n
+    N = 0 #평균을 넘는 학생수
+    for k in scores:
+        if average < int(k):
+            N += 1
+    print("%.3f%%" %(N / n * 100))
